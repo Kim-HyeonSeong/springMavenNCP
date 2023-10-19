@@ -17,6 +17,15 @@
  	</insert>
  	
  	<select id="getUploadList" resultType="UserImageDTO">
- 		select * from userimage order by seq desc;
+ 		select * from userimage order by seq desc
  	</select>
+ 	
+ 	<select id="delete" parameterType="int">
+ 		delete from userimage where seq=#{imageSeq};
+ 	</select>
+ 	
+ 	<select id="getImage" parameterType="int" resultType="UserImageDTO">
+ 		select * from userimage where seq=#{imageSeq};
+ 	</select>
+
  </mapper>

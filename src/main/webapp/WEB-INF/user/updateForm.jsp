@@ -19,12 +19,13 @@
 </style>
 </head>
 <body>
-<form id="uploadForm">
+<form id="updateForm">
 	<table border="1">
 		<tr>
 			<th>상품명</th>
 			<td>
 				<input type="text" name="imageName" id="imageName" size="35">
+				<input type="text" name="seq" id="seq" value="${param.seq}"> 
 				<div id="imageNameDiv"></div>
 			</td>
 		</tr>
@@ -47,7 +48,7 @@
 		
 		<tr>
 			<td colspan="2" align="center">
-				<input type="button" value="이미지 업로드" id="uploadBtn">
+				<input type="button" value="수정" id="updateBtn">
 				<input type="reset" value="취소">
 			</td>
 		</tr>
@@ -59,6 +60,7 @@
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script type="text/javascript" src="../js/upload.js"></script>
+<script type="text/javascript" src="../js/update.js"></script>
 <script>
 $('#camera').click(function(){
 	//강제로 이벤트 발생시킴
@@ -82,6 +84,7 @@ function readURL(file){
 	reader.onload = function(e){	
 		var img = document.createElement('img');
 		var br = document.createElement('br');
+		
 		img.src = e.target.result;
 		img.width = 70;
 		img.height = 70;

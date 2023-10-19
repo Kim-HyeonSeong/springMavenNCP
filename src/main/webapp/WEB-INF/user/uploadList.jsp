@@ -20,6 +20,8 @@
 		<th width="150">번 호</th>
 		<th width="150">이미지</th>
 		<th width="150">상품명</th>
+		<th width="150">이미지 수정</th>
+		<th width="150">이미지 삭제</th>
 	</tr>
 	
 	<!-- 동적 처리 -->

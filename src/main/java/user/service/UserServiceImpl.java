@@ -25,4 +25,16 @@ public class UserServiceImpl implements UserService {
 	public List<UserImageDTO> getUploadList() {
 		return userDAO.getUploadList();
 	}
+
+	@Override
+	public void delete(String seq) {
+		int imageSeq = Integer.parseInt(seq);
+		userDAO.delete(imageSeq);
+	}
+
+	@Override
+	public UserImageDTO getImage(String seq) {
+		int imageSeq = Integer.parseInt(seq);
+		return userDAO.getImage(imageSeq);
+	}
 }

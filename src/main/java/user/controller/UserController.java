@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +38,26 @@ public class UserController {
       return "/user/uploadForm";
    }
    
+   //값을 받는거는 Get으로 받아야함!!
+   @GetMapping(value="updateForm")
+ 	public String updateForm(@RequestParam String seq, Model model) {
+	   model.getAttribute(seq);
+	   return "/user/updateForm";
+ 	}
    
+    @PostMapping(value="getImage")
+	@ResponseBody
+	public UserImageDTO getImage(@RequestParam String seq) {
+		return userService.getImage(seq);
+	}
+   
+   
+   @PostMapping(value="delete")
+   @ResponseBody
+	public void delete(@RequestParam String seq) {
+	    System.out.println("지우려는 숫자 : " + seq);
+		userService.delete(seq);
+	}
 	/*
 	 * // MappingJackson2HttpMessageConverter 가 jackson 라이브러리를 이용해 // 자바 객체를 JSON
 	 * 문자열로 변환하여 클라이언트로 보낸다. // 이 컨버터를 사용하면 굳이 UTF-8 변환을 설정할 필요가 없다. // 즉 produces =
