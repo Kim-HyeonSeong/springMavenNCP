@@ -16,4 +16,8 @@ public interface UserDAO {
 	public void delete(int imageSeq);
 
 	public UserImageDTO getImage(int imageSeq);
+
+	public void update(UserImageDTO userImageDTO);
+
+	public String searchUUID(int seq);
 }

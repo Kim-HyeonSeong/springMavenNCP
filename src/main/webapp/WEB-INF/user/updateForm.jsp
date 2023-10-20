@@ -48,7 +48,7 @@
 		
 		<tr>
 			<td colspan="2" align="center">
-				<input type="button" value="수정" id="updateBtn">
+				<input type="button" value="수정" id="updateCBtn">
 				<input type="reset" value="취소">
 			</td>
 		</tr>

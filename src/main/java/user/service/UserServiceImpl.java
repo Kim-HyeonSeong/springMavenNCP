@@ -27,14 +27,34 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void delete(String seq) {
+	public String delete(String seq) {
 		int imageSeq = Integer.parseInt(seq);
+		String selectUUID =userDAO.searchUUID(imageSeq);
 		userDAO.delete(imageSeq);
+		
+		return selectUUID;
 	}
 
 	@Override
 	public UserImageDTO getImage(String seq) {
 		int imageSeq = Integer.parseInt(seq);
 		return userDAO.getImage(imageSeq);
+	}
+
+	@Override
+	public String update(List<UserImageDTO> userImageList) {
+		System.out.println("--------");
+		System.out.println(userImageList.get(0).getImageName());
+		System.out.println(userImageList.get(0).getImageContent());
+		System.out.println(userImageList.get(0).getImageFileName());
+		System.out.println(userImageList.get(0).getImageOriginalName());
+		System.out.println(userImageList.get(0).getSeq());
+		System.out.println(userImageList.get(0).getClass());
+		
+		String selectUUID =userDAO.searchUUID(userImageList.get(0).getSeq());
+		
+		userDAO.update(userImageList.get(0));
+		
+		return selectUUID;
 	}
 }

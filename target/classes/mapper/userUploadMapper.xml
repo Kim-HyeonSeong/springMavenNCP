@@ -27,5 +27,15 @@
  	<select id="getImage" parameterType="int" resultType="UserImageDTO">
  		select * from userimage where seq=#{imageSeq};
  	</select>
-
+	
+	<update id="update" parameterType="user.bean.UserImageDTO">
+ 		update userimage 
+ 		set imageName=#{imageName}, imageContent=#{imageContent}, 
+ 			imageFileName=#{imageFileName},imageOriginalName=#{imageOriginalName} 
+ 		WHERE seq=#{seq};
+ 	</update>
+ 	
+ 	<select id="searchUUID" parameterType="int" resultType="java.lang.String">
+ 		select imageFileName from userimage where seq=#{imageSeq};
+ 	</select>
  </mapper>

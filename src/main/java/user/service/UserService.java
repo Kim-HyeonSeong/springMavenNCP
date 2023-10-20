@@ -10,8 +10,10 @@ public interface UserService {
 
 	public List<UserImageDTO> getUploadList();
 
-	public void delete(String seq);
+	public String delete(String seq);
 
 	public UserImageDTO getImage(String seq);
+
+	public String update(List<UserImageDTO> userImageList);
 	
 }
